@@ -1,0 +1,560 @@
+# Abdullah ❤️ Maryam — Romantic Love Story
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdullah ❤️ Maryam</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080013;
+    color: white;
+    font-family: Georgia, serif;
+    overflow: hidden;
+}
+
+.scene {
+    display: none;
+    position: fixed;
+    inset: 0;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+}
+
+.scene.active {
+    display: flex;
+    animation: sceneIn 1.2s ease;
+}
+
+@keyframes sceneIn {
+    from { opacity: 0; transform: scale(1.15); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+button {
+    border: 2px solid #ffb4dd;
+    border-radius: 40px;
+    background: linear-gradient(135deg, #ff168a, #8d005e);
+    color: white;
+    padding: 14px 35px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 35px;
+    box-shadow: 0 0 25px #ff168a;
+    transition: .4s;
+    z-index: 5;
+}
+
+button:hover {
+    transform: scale(1.12);
+    box-shadow: 0 0 45px #ff8acb;
+}
+
+.heading {
+    font-size: clamp(35px, 7vw, 70px);
+    color: #fff;
+    text-shadow: 0 0 15px #ff1493, 0 0 40px #ff1493;
+    margin-bottom: 20px;
+}
+
+/* BACKGROUNDS */
+
+#scene1 {
+    background: radial-gradient(circle, #4c164c, #160021 60%, #030008);
+}
+
+#scene2 {
+    background: radial-gradient(circle, #6b164c, #210020, #030008);
+}
+
+#scene3 {
+    background: radial-gradient(circle, #4c003d, #13001e, #020008);
+}
+
+#scene4 {
+    background: linear-gradient(135deg, #130e38, #66204f, #18001c);
+}
+
+#scene5 {
+    background: linear-gradient(135deg, #380b31, #9c245e, #20001c);
+}
+
+#scene6 {
+    background: radial-gradient(circle, #48104a, #16001d, #020008);
+}
+
+#scene7 {
+    background: linear-gradient(135deg, #280027, #080013);
+}
+
+/* STARS */
+
+.stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(2px 2px at 10% 20%, white 99%, transparent),
+      radial-gradient(2px 2px at 80% 30%, pink 99%, transparent),
+      radial-gradient(2px 2px at 40% 70%, white 99%, transparent),
+      radial-gradient(2px 2px at 90% 80%, white 99%, transparent);
+    background-size: 160px 160px;
+    animation: starMove 20s linear infinite;
+}
+
+@keyframes starMove {
+    to { background-position: 160px 320px; }
+}
+
+/* SCENE 1: PROPOSAL */
+
+.proposal {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 30px;
+    height: 230px;
+    margin: 20px;
+    perspective: 700px;
+}
+
+.boy {
+    font-size: 105px;
+    animation: kneel 2s infinite alternate;
+    transform-origin: bottom;
+}
+
+.girl {
+    font-size: 105px;
+    animation: girlMove 3s infinite ease-in-out;
+}
+
+@keyframes kneel {
+    0% { transform: rotate(-8deg) translateY(0); }
+    100% { transform: rotate(8deg) translateY(8px); }
+}
+
+@keyframes girlMove {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+.proposalText {
+    font-size: 25px;
+    color: #ffd6eb;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+/* SCENE 2: 3D HEART */
+
+.heartBox {
+    width: 230px;
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 900px;
+    margin: 25px;
+}
+
+.bigHeart {
+    font-size: 175px;
+    filter: drop-shadow(0 0 20px #ff006a)
+            drop-shadow(0 0 50px #ff006a);
+    animation: heartBeat 1.5s infinite;
+    transform-style: preserve-3d;
+}
+
+@keyframes heartBeat {
+    0%,100% { transform: scale(1) rotateY(0deg); }
+    50% { transform: scale(1.2) rotateY(25deg); }
+}
+
+.names {
+    font-size: clamp(30px, 6vw, 55px);
+    color: #ffd6ec;
+    text-shadow: 0 0 20px #ff168a;
+}
+
+/* SCENE 3: HEART OPEN */
+
+.openHeart {
+    font-size: 160px;
+    animation: heartOpen 2s forwards;
+    filter: drop-shadow(0 0 35px #ff168a);
+}
+
+@keyframes heartOpen {
+    0% { transform: scale(.2) rotateY(0); opacity: 0; }
+    60% { transform: scale(1.5) rotateY(180deg); opacity: 1; }
+    100% { transform: scale(1) rotateY(360deg); opacity: 1; }
+}
+
+.loveText {
+    font-size: clamp(35px, 8vw, 75px);
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 20px #ff008c, 0 0 60px #ff008c;
+    animation: loveGlow 2s infinite alternate;
+}
+
+@keyframes loveGlow {
+    to { transform: scale(1.08); text-shadow: 0 0 35px #ff9bd4; }
+}
+
+/* SCENE 4 */
+
+.beautifulCard {
+    width: min(90%, 650px);
+    padding: 35px 25px;
+    background: #ffffff12;
+    border: 1px solid #ff9ad7;
+    border-radius: 25px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 40px #ff168a55;
+    animation: cardFloat 4s infinite ease-in-out;
+}
+
+@keyframes cardFloat {
+    0%,100% { transform: translateY(0) rotateY(-4deg); }
+    50% { transform: translateY(-15px) rotateY(4deg); }
+}
+
+.beautifulCard p {
+    font-size: 24px;
+    line-height: 1.8;
+    color: #ffe0f2;
+}
+
+/* SCENE 5: URDU */
+
+.urdu {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: clamp(22px, 4vw, 34px);
+    line-height: 2.3;
+    color: #fff0f8;
+    direction: rtl;
+    text-shadow: 0 0 15px #ff62b6;
+}
+
+/* SCENE 6: GIFT */
+
+.giftArea {
+    position: relative;
+    width: 220px;
+    height: 200px;
+    margin-top: 40px;
+    perspective: 800px;
+    cursor: pointer;
+}
+
+.giftBody {
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+    height: 140px;
+    left: 10px;
+    background: linear-gradient(135deg, #ff2b9a, #a90060);
+    border: 3px solid #ffb7dd;
+    border-radius: 8px;
+    box-shadow: 0 0 40px #ff168a;
+}
+
+.giftBody:before {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 100%;
+    background: #ffd34f;
+    left: 80px;
+}
+
+.giftLid {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 220px;
+    height: 45px;
+    background: linear-gradient(135deg, #ff71bd, #d50070);
+    border: 3px solid #ffe1ef;
+    border-radius: 8px;
+    z-index: 2;
+    transition: 1.2s;
+}
+
+.giftLid:after {
+    content: "🎀";
+    position: absolute;
+    left: 78px;
+    top: -48px;
+    font-size: 65px;
+}
+
+.giftArea.open .giftLid {
+    transform: translateY(-130px) rotate(-25deg);
+}
+
+.giftArea.open .giftBody {
+    box-shadow: 0 0 100px #ff168a;
+}
+
+/* SCENE 7: PHOTO */
+
+.photoFrame {
+    width: min(85vw, 480px);
+    height: min(55vh, 430px);
+    padding: 10px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #ffb1df, #ff168a, #ffd45d);
+    box-shadow: 0 0 50px #ff168a;
+    animation: photoAppear 2s ease;
+}
+
+.photoFrame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+@keyframes photoAppear {
+    from { transform: scale(.1) rotateY(180deg); opacity: 0; }
+    to { transform: scale(1) rotateY(0); opacity: 1; }
+}
+
+/* FLOATING HEARTS */
+
+.floating {
+    position: fixed;
+    bottom: -50px;
+    pointer-events: none;
+    animation: floatUp 7s linear forwards;
+    z-index: 2;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-115vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media(max-width:600px) {
+    .proposal { gap: 5px; }
+    .boy, .girl { font-size: 80px; }
+    .proposalText { font-size: 19px; }
+    .beautifulCard p { font-size: 19px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- SCENE 1 -->
+<section class="scene active" id="scene1">
+    <div class="stars"></div>
+    <h1 class="heading">A Special Moment ❤️</h1>
+
+    <div class="proposal">
+        <div class="boy">🧎🏻‍♂️💍</div>
+        <div class="girl">👩🏻</div>
+    </div>
+
+    <div class="proposalText">
+        Maryam... ❤️<br>
+        Will you make my world more beautiful?
+    </div>
+
+    <button onclick="nextScene(2)">YES, SHOW ME ❤️</button>
+</section>
+
+<!-- SCENE 2 -->
+<section class="scene" id="scene2">
+    <div class="stars"></div>
+    <h1 class="heading">Two Hearts, One Story</h1>
+    <div class="heartBox">
+        <div class="bigHeart">❤️</div>
+    </div>
+    <div class="names">Abdullah ❤️ Maryam</div>
+    <button onclick="nextScene(3)">NEXT ❤️</button>
+</section>
+
+<!-- SCENE 3 -->
+<section class="scene" id="scene3">
+    <div class="stars"></div>
+    <div class="openHeart">💖</div>
+    <h1 class="loveText">I LOVE YOU MARYAM</h1>
+    <p class="proposalText">You are so special! ❤️</p>
+    <button onclick="nextScene(4)">NEXT ✨</button>
+</section>
+
+<!-- SCENE 4 -->
+<section class="scene" id="scene4">
+    <div class="stars"></div>
+    <div class="beautifulCard">
+        <h1 class="heading">My Beautiful World 🌙</h1>
+        <p>
+            In a world full of ordinary moments,<br>
+            you are my favourite beautiful feeling.<br><br>
+            Every little smile can make a day special.<br>
+            Some people are simply unforgettable. ❤️
+        </p>
+    </div>
+    <button onclick="nextScene(5)">NEXT 🌹</button>
+</section>
+
+<!-- SCENE 5 -->
+<section class="scene" id="scene5">
+    <div class="stars"></div>
+    <h1 class="heading">چند خاص الفاظ ❤️</h1>
+
+    <div class="beautifulCard">
+        <p class="urdu">
+            مریم! تمہاری مسکراہٹ میری خوشی ہے،
+            تمہاری خوشی میری دعا ہے۔<br>
+            تم سے بات ہو تو دن خوبصورت لگتا ہے،
+            اور تمہارا خیال آئے تو دل مسکرا دیتا ہے۔<br>
+            میری دعا ہے کہ تمہاری زندگی ہمیشہ
+            خوشیوں، محبت اور سکون سے بھری رہے۔<br>
+            ہمیشہ مسکراتی رہو! ❤️
+        </p>
+    </div>
+
+    <button onclick="nextScene(6)">YOUR GIFT 🎁</button>
+</section>
+
+<!-- SCENE 6 -->
+<section class="scene" id="scene6">
+    <div class="stars"></div>
+    <h1 class="heading">A Gift For You 🎁</h1>
+    <p class="proposalText">Maryam, your surprise is waiting...</p>
+
+    <div class="giftArea" id="gift" onclick="openGift()">
+        <div class="giftLid"></div>
+        <div class="giftBody"></div>
+    </div>
+
+    <p id="giftMessage" class="proposalText">
+        Tap the gift box to open ❤️
+    </p>
+</section>
+
+<!-- SCENE 7 -->
+<section class="scene" id="scene7">
+    <div class="stars"></div>
+    <h1 class="heading">Just For You, Maryam ❤️</h1>
+
+    <div class="photoFrame">
+        <img
+          src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=900"
+          alt="Beautiful romantic flowers">
+    </div>
+
+    <p class="proposalText">
+        With love, Abdullah ❤️
+    </p>
+
+    <button onclick="nextScene(1)">WATCH AGAIN ↻</button>
+</section>
+
+<script>
+let currentScene = 1;
+let giftOpened = false;
+
+function nextScene(number) {
+    document.getElementById("scene" + currentScene)
+        .classList.remove("active");
+
+    currentScene = number;
+
+    document.getElementById("scene" + currentScene)
+        .classList.add("active");
+
+    if(number === 3) {
+        const heart = document.querySelector(".openHeart");
+        heart.style.animation = "none";
+        void heart.offsetWidth;
+        heart.style.animation = "heartOpen 2s forwards";
+    }
+}
+
+function openGift() {
+    if(giftOpened) return;
+
+    giftOpened = true;
+
+    document.getElementById("gift").classList.add("open");
+
+    document.getElementById("giftMessage").innerHTML =
+        "SURPRISE! ❤️";
+
+    for(let i = 0; i < 35; i++) {
+        createHeart();
+    }
+
+    setTimeout(function() {
+        nextScene(7);
+    }, 1800);
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "floating";
+    heart.innerHTML = ["❤️","💖","💕","🌹","✨"][
+        Math.floor(Math.random() * 5)
+    ];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (20 + Math.random() * 25) + "px";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 8000);
+}
+
+setInterval(createHeart, 900);
+</script>
+
+</body>
+</html>
+```
+
+## Important: Apni picture kaise lagani hai?
+
+Scene 7 mein abhi romantic flowers ki picture hai. Agar tum Maryam ya Abdullah ki koi apni picture lagana chaho to:
+
+1. Apni picture ko `photo.jpg` naam do.
+2. `love.html` wali file ke saath usi folder mein rakho.
+3. Code mein ye line:
+
+```html
+src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=900"
+```
+
+Is se replace karo:
+
+```html
+src="photo.jpg"
+```
+
+Ab website mein tumhari apni picture aa jayegi.
+
